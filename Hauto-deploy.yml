@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: auto-deploy
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: Hauto
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: Hauto
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
